@@ -62,7 +62,9 @@ app.post("/add", (req, res) => {
   newUser.save().then((data) => {
     res.send(data);
     //HTTP status code 201 created
-    res.sendStatus(201);
+    res.status(201).json({
+      message: "User added successfully",
+    });
   });
   // User New
 });
