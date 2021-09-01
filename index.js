@@ -7,6 +7,7 @@ const path = require("path");
 const app = express();
 
 const User = require("./model/UserSchema");
+const { json } = require("express");
 dotenv.config({ path: "./config.env" });
 
 app.use(express.json());
@@ -60,6 +61,8 @@ app.post("/add", (req, res) => {
   });
   newUser.save().then((data) => {
     res.send(data);
+    //HTTP status code 201 created
+    res.sendStatus(201);
   });
   // User New
 });
